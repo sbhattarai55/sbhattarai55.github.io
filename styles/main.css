@@ -3,37 +3,37 @@
    ========================================================= */
 
 :root {
-  /* ---- Color tokens — dark, modern civic palette
-     (matches the sign-in / register dark UI) ---- */
-  --color-bg: #1d1c2b;
-  --color-surface: #2a2940;
-  --color-surface-alt: #232238;
-  --color-surface-hi: #34324b;        /* slightly lighter (hover, active rows) */
-  --color-border: #3d3b55;
-  --color-border-strong: #4a4866;
+  /* ---- Color tokens — light, modern civic palette
+     (the dark sign-in / register UI uses its own --auth-* tokens) ---- */
+  --color-bg: #f5f6fb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f9fafd;
+  --color-surface-hi: #eef0f8;        /* slightly stronger (hover, active rows) */
+  --color-border: #e2e5ee;
+  --color-border-strong: #cdd2e0;
 
-  --color-text: #f3f1ff;
-  --color-text-muted: #a09dbe;
-  --color-text-subtle: #74708f;
+  --color-text: #1c1d2b;
+  --color-text-muted: #5d6480;
+  --color-text-subtle: #8a90a8;
 
-  --color-primary: #7c5cff;           /* signature purple */
-  --color-primary-hover: #6a48f0;
-  --color-primary-soft: rgba(124, 92, 255, 0.16);
+  --color-primary: #6a4cf0;           /* signature purple */
+  --color-primary-hover: #5638dc;
+  --color-primary-soft: rgba(106, 76, 240, 0.10);
 
-  --color-accent: #4ade80;            /* success green */
-  --color-accent-soft: rgba(74, 222, 128, 0.14);
+  --color-accent: #16a34a;            /* success green */
+  --color-accent-soft: rgba(22, 163, 74, 0.10);
 
-  --color-warn: #fbbf24;
-  --color-warn-soft: rgba(251, 191, 36, 0.14);
-  --color-danger: #f87171;
-  --color-danger-soft: rgba(248, 113, 113, 0.14);
-  --color-info: #60a5fa;
-  --color-info-soft: rgba(96, 165, 250, 0.14);
+  --color-warn: #d97706;
+  --color-warn-soft: rgba(217, 119, 6, 0.10);
+  --color-danger: #dc2626;
+  --color-danger-soft: rgba(220, 38, 38, 0.10);
+  --color-info: #2563eb;
+  --color-info-soft: rgba(37, 99, 235, 0.10);
 
-  --color-tier-bronze: #c08457;
-  --color-tier-silver: #b8c2d0;
-  --color-tier-gold:   #f3c969;
-  --color-tier-platinum: #b6c4ff;
+  --color-tier-bronze: #a4612d;
+  --color-tier-silver: #6b7585;
+  --color-tier-gold:   #b88514;
+  --color-tier-platinum: #4f5fc0;
 
   /* Spacing */
   --space-1: 4px;
@@ -52,11 +52,11 @@
   --radius-lg: 14px;
   --radius-pill: 999px;
 
-  /* Shadows (deeper for dark UI) */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.18);
-  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.45);
+  /* Shadows (soft for light UI) */
+  --shadow-xs: 0 1px 2px rgba(20, 22, 40, 0.05);
+  --shadow-sm: 0 1px 2px rgba(20, 22, 40, 0.06), 0 1px 3px rgba(20, 22, 40, 0.04);
+  --shadow-md: 0 6px 18px rgba(20, 22, 40, 0.08);
+  --shadow-lg: 0 18px 40px rgba(20, 22, 40, 0.12);
 
   /* Layout */
   --header-h: 60px;
@@ -85,8 +85,8 @@ body {
   line-height: 1.5;
   color: var(--color-text);
   background:
-    radial-gradient(circle at 18% 8%, rgba(124, 92, 255, 0.10), transparent 45%),
-    radial-gradient(circle at 88% 92%, rgba(91, 71, 209, 0.10), transparent 45%),
+    radial-gradient(circle at 18% 8%, rgba(106, 76, 240, 0.06), transparent 45%),
+    radial-gradient(circle at 88% 92%, rgba(106, 76, 240, 0.05), transparent 45%),
     var(--color-bg);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;

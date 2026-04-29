@@ -119,7 +119,7 @@
 .avatar {
   width: 36px; height: 36px; border-radius: 50%;
   background: var(--color-primary-soft);
-  color: #d8caff;
+  color: var(--color-primary);
   display: inline-flex; align-items: center; justify-content: center;
   font-weight: 600; font-size: 13px;
   flex-shrink: 0;
@@ -366,7 +366,7 @@
 .reco-card.is-applied { opacity: 0.55; }
 .reco-card__icon {
   width: 32px; height: 32px; border-radius: var(--radius-sm);
-  background: var(--color-primary-soft); color: #d8caff;
+  background: var(--color-primary-soft); color: var(--color-primary);
   display: inline-flex; align-items: center; justify-content: center;
   font-size: 16px; flex-shrink: 0;
 }

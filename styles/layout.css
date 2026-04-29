@@ -187,7 +187,7 @@
 .user-menu__avatar {
   width: 28px; height: 28px; border-radius: 50%;
   background: var(--color-primary-soft);
-  color: #d8caff;
+  color: var(--color-primary);
   display: inline-flex; align-items: center; justify-content: center;
   font-weight: 600; font-size: 12px;
 }
@@ -219,8 +219,8 @@
 .side-nav__brand-mark {
   width: 28px; height: 28px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, #fff 0%, #e6dcff 100%);
-  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #9580ff 100%);
+  color: #fff;
   display: inline-flex; align-items: center; justify-content: center;
   font-weight: 700;
 }
