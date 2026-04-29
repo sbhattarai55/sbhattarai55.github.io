@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../styles/layout.css" />
   <link rel="stylesheet" href="../styles/components.css" />
   <link rel="stylesheet" href="../styles/a11y.css" />
+  <script src="../scripts/theme.js"></script>
 </head>
 <body>
   <div data-app-shell>
@@ -127,7 +128,7 @@
       <div class="form-field"><label>Program</label><select id="joinProgramSelect"></select></div>
       <p class="text-muted mt-3" id="joinProgramDesc"></p>
     </div>
-    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" id="joinProgramSubmit">Join</button></div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--success" id="joinProgramSubmit">Join</button></div>
   </div></div>
 
   <div class="modal-overlay" id="feedbackModal"><div class="modal">
@@ -144,7 +145,7 @@
       </div>
       <div class="form-field mt-3"><label>Comment</label><textarea id="feedbackComment" placeholder="Tell us about your experience…"></textarea></div>
     </div>
-    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" id="feedbackSubmit">Submit</button></div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--info" id="feedbackSubmit">Submit</button></div>
   </div></div>
 
   <script src="../scripts/mock-data.js"></script>

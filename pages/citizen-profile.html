@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../styles/layout.css" />
   <link rel="stylesheet" href="../styles/components.css" />
   <link rel="stylesheet" href="../styles/a11y.css" />
+  <script src="../scripts/theme.js"></script>
 </head>
 <body>
   <div data-app-shell>
@@ -22,10 +23,10 @@
           <h1 id="profileName">Loading…</h1>
         </div>
         <div class="btn-group">
-          <button class="btn btn--ghost" data-modal-open="thankAction">Thank citizen</button>
-          <button class="btn btn--ghost" data-modal-open="enrollAction">Enroll in program</button>
-          <button class="btn btn--ghost" data-modal-open="escalateAction">Escalate</button>
-          <button class="btn btn--primary" data-modal-open="resolveAction">Resolve issue</button>
+          <button class="btn btn--info" data-modal-open="thankAction">Thank citizen</button>
+          <button class="btn btn--ghost-success" data-modal-open="enrollAction">Enroll in program</button>
+          <button class="btn btn--warn" data-modal-open="escalateAction">Escalate</button>
+          <button class="btn btn--success" data-modal-open="resolveAction">Resolve issue</button>
         </div>
       </div>
 
@@ -149,7 +150,7 @@
         <textarea id="thankMessage">Thank you for your continued civic engagement.</textarea>
       </div>
     </div>
-    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" id="thankSubmit">Send</button></div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--info" id="thankSubmit">Send</button></div>
   </div></div>
   <div class="modal-overlay" id="enrollAction"><div class="modal">
     <div class="modal__header"><h3 class="modal__title">Enroll in program</h3><button class="modal__close" data-modal-close>×</button></div>
@@ -157,7 +158,7 @@
       <div class="form-field"><label>Program</label><select id="enrollAction_program"></select></div>
       <div class="form-field mt-3"><label>Notes</label><textarea id="enrollAction_notes" placeholder="Eligibility verified, consent captured…"></textarea></div>
     </div>
-    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" id="enrollActionSubmit">Enroll</button></div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--success" id="enrollActionSubmit">Enroll</button></div>
   </div></div>
   <div class="modal-overlay" id="escalateAction"><div class="modal">
     <div class="modal__header"><h3 class="modal__title">Escalate to supervisor</h3><button class="modal__close" data-modal-close>×</button></div>
@@ -167,12 +168,12 @@
       </div>
       <div class="form-field mt-3"><label>Notes</label><textarea id="escalateNotes"></textarea></div>
     </div>
-    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--danger" id="escalateSubmit">Confirm escalation</button></div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--warn" id="escalateSubmit">Confirm escalation</button></div>
   </div></div>
   <div class="modal-overlay" id="resolveAction"><div class="modal">
     <div class="modal__header"><h3 class="modal__title">Resolve issue</h3><button class="modal__close" data-modal-close>×</button></div>
     <div class="modal__body"><div class="form-field"><label>Resolution notes</label><textarea id="resolveNotes"></textarea></div></div>
-    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" id="resolveSubmit">Mark resolved</button></div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--success" id="resolveSubmit">Mark resolved</button></div>
   </div></div>
 
   <script src="../scripts/mock-data.js"></script>

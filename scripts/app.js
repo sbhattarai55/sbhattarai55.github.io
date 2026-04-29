@@ -139,6 +139,9 @@
         </div>
 
         <div class="app-header__actions">
+          <button class="icon-btn" type="button" id="themeToggleBtn" aria-label="Switch to dark theme" aria-pressed="false" title="Toggle theme">
+            <span aria-hidden="true" id="themeToggleIcon">🌙</span>
+          </button>
           <button class="icon-btn" type="button" aria-label="Notifications, 1 unread">
             <span aria-hidden="true">🔔</span>
             <span class="badge-dot" aria-hidden="true"></span>
@@ -374,6 +377,26 @@
         const inPages = window.location.pathname.includes("/pages/");
         window.location.href = inPages ? "../index.html" : "index.html";
       });
+    }
+
+    // Theme toggle
+    const themeBtn = document.getElementById("themeToggleBtn");
+    const themeIcon = document.getElementById("themeToggleIcon");
+    function syncThemeButton() {
+      if (!themeBtn) return;
+      const isDark = (window.Theme && window.Theme.current() === "dark") ||
+                     document.documentElement.getAttribute("data-theme") === "dark";
+      themeBtn.setAttribute("aria-pressed", String(isDark));
+      themeBtn.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+      if (themeIcon) themeIcon.textContent = isDark ? "☀️" : "🌙";
+    }
+    if (themeBtn && window.Theme) {
+      syncThemeButton();
+      themeBtn.addEventListener("click", () => {
+        window.Theme.toggle();
+        syncThemeButton();
+      });
+      window.addEventListener("themechange", syncThemeButton);
     }
   }
 

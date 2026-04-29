@@ -52,8 +52,8 @@
           <textarea id="caseComment" placeholder="Provide more details or follow up…"></textarea>
         </div>
         <div class="btn-group mt-4">
-          <button class="btn btn--primary" id="caseAddComment">Send comment</button>
-          ${c.status !== "Resolved" ? `<button class="btn btn--ghost" id="caseWithdraw">Withdraw request</button>` : ""}
+          <button class="btn btn--info" id="caseAddComment">Send comment</button>
+          ${c.status !== "Resolved" ? `<button class="btn btn--ghost-danger" id="caseWithdraw">Withdraw request</button>` : ""}
         </div>
       `;
       document.getElementById("caseAddComment").addEventListener("click", async () => {
@@ -92,8 +92,8 @@
 
       <div class="btn-group mt-4">
         <button class="btn btn--ghost" id="caseSave">Save changes</button>
-        <button class="btn btn--danger" id="caseEscalate">Escalate</button>
-        <button class="btn btn--primary" id="caseResolve">Mark resolved</button>
+        <button class="btn btn--warn" id="caseEscalate">Escalate</button>
+        <button class="btn btn--success" id="caseResolve">Mark resolved</button>
       </div>
     `;
 

@@ -15,7 +15,7 @@
         <td><a href="citizen-profile.html?id=${a.citizenId}">${a.citizenId}</a></td>
         <td>${"★".repeat(a.lastScore)}<small class="text-muted"> ${a.lastScore}</small></td>
         <td>${a.channel}</td>
-        <td class="row-actions"><button class="btn btn--sm btn--ghost">Reach out</button></td>
+        <td class="row-actions"><button class="btn btn--sm btn--ghost-info">Reach out</button></td>
       </tr>`).join("");
 
     document.getElementById("agentPerfRows").innerHTML = i.agentPerformance.map(a => {

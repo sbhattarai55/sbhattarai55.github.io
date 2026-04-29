@@ -17,7 +17,7 @@
           <div class="mb-2"><small class="text-muted">Eligibility:</small> ${p.eligibility}</div>
           <div class="flex justify-between items-center mt-3">
             <span class="badge badge--success">+${p.points} pts</span>
-            <button class="btn btn--sm btn--primary" data-modal-open="enrollModal">${opts.cta || "Enroll"}</button>
+            <button class="btn btn--sm btn--success" data-modal-open="enrollModal">${opts.cta || "Enroll"}</button>
           </div>
           ${opts.why ? `<div class="alert alert--info mt-3"><span class="alert__icon">✨</span><div>${opts.why}</div></div>` : ""}
         </div>

@@ -69,6 +69,54 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+/* ---- Dark theme override
+   Activated by [data-theme="dark"] on <html> (set by app.js / theme.js,
+   persisted to localStorage so it survives reloads). All component CSS
+   reads from these tokens, so flipping the attribute re-skins the app. ---- */
+:root[data-theme="dark"] {
+  --color-bg: #1d1c2b;
+  --color-surface: #2a2940;
+  --color-surface-alt: #232238;
+  --color-surface-hi: #34324b;
+  --color-border: #3d3b55;
+  --color-border-strong: #4a4866;
+
+  --color-text: #f3f1ff;
+  --color-text-muted: #a09dbe;
+  --color-text-subtle: #74708f;
+
+  --color-primary: #7c5cff;
+  --color-primary-hover: #6a48f0;
+  --color-primary-soft: rgba(124, 92, 255, 0.16);
+
+  --color-accent: #4ade80;
+  --color-accent-soft: rgba(74, 222, 128, 0.14);
+
+  --color-warn: #fbbf24;
+  --color-warn-soft: rgba(251, 191, 36, 0.14);
+  --color-danger: #f87171;
+  --color-danger-soft: rgba(248, 113, 113, 0.14);
+  --color-info: #60a5fa;
+  --color-info-soft: rgba(96, 165, 250, 0.14);
+
+  --color-tier-bronze: #c08457;
+  --color-tier-silver: #b8c2d0;
+  --color-tier-gold:   #f3c969;
+  --color-tier-platinum: #b6c4ff;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(124, 92, 255, 0.10), transparent 45%),
+    radial-gradient(circle at 88% 92%, rgba(91, 71, 209, 0.10), transparent 45%),
+    var(--color-bg);
+}
+
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }

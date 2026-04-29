@@ -41,7 +41,7 @@
       <p class="mt-3">${a.excerpt}</p>
       <p class="text-muted">[Full article body would render here. TODO: load from CMS or markdown file.]</p>
       <div class="btn-group mt-3">
-        <button class="btn btn--ghost btn--sm" data-kb-send="${a.id}">Send to citizen</button>
+        <button class="btn btn--ghost-info btn--sm" data-kb-send="${a.id}">Send to citizen</button>
         <button class="btn btn--ghost btn--sm" data-kb-copy="${a.id}">Copy link</button>
       </div>`;
   }
