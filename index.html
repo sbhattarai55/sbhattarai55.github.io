@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/components.css" />
   <link rel="stylesheet" href="styles/auth.css" />
+  <link rel="stylesheet" href="styles/a11y.css" />
 </head>
 <body class="auth-body">
   <main class="auth-page">
@@ -95,9 +96,9 @@
           <div class="auth-visual__bottom">
             <h2 class="auth-visual__title">Engaging Citizens,<br/>Empowering Cities.</h2>
             <div class="auth-dots" role="tablist" aria-label="Highlights">
-              <button class="auth-dot is-active" aria-label="Slide 1" aria-selected="true"></button>
-              <button class="auth-dot" aria-label="Slide 2"></button>
-              <button class="auth-dot" aria-label="Slide 3"></button>
+              <button type="button" role="tab" class="auth-dot is-active" aria-label="Highlight 1 of 3" aria-selected="true"></button>
+              <button type="button" role="tab" class="auth-dot" aria-label="Highlight 2 of 3" aria-selected="false"></button>
+              <button type="button" role="tab" class="auth-dot" aria-label="Highlight 3 of 3" aria-selected="false"></button>
             </div>
           </div>
         </div>
@@ -107,35 +108,35 @@
       <section class="auth-form-panel">
         <div class="auth-form-inner">
           <header class="auth-form-header">
-            <h1>Welcome back</h1>
+            <h1 id="loginHeading">Welcome back</h1>
             <p>
               Don't have an account?
               <a href="pages/register.html" class="auth-link">Create one</a>
             </p>
           </header>
 
-          <form id="loginForm" class="auth-form" novalidate>
-            <div class="auth-role-select" role="radiogroup" aria-label="Sign in as">
-              <span class="auth-role-select__label">I'm signing in as</span>
+          <form id="loginForm" class="auth-form" novalidate aria-labelledby="loginHeading">
+            <div class="auth-role-select" role="radiogroup" aria-labelledby="roleSelectLabel">
+              <span class="auth-role-select__label" id="roleSelectLabel">I'm signing in as</span>
               <div class="auth-role-segments">
-                <button type="button" class="auth-role-seg is-active" data-role="citizen" role="radio" aria-checked="true">
+                <button type="button" class="auth-role-seg is-active" data-role="citizen" role="radio" aria-checked="true" tabindex="0">
                   <span aria-hidden="true">🧍</span> Citizen
                 </button>
-                <button type="button" class="auth-role-seg" data-role="agent" role="radio" aria-checked="false">
+                <button type="button" class="auth-role-seg" data-role="agent" role="radio" aria-checked="false" tabindex="-1">
                   <span aria-hidden="true">🎧</span> Agent
                 </button>
-                <button type="button" class="auth-role-seg" data-role="supervisor" role="radio" aria-checked="false">
+                <button type="button" class="auth-role-seg" data-role="supervisor" role="radio" aria-checked="false" tabindex="-1">
                   <span aria-hidden="true">📊</span> Supervisor
                 </button>
               </div>
             </div>
 
             <div class="auth-field">
-              <label for="loginEmail" class="sr-only">Email</label>
+              <label for="loginEmail" class="sr-only">Email address</label>
               <span class="auth-field__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
               </span>
-              <input id="loginEmail" type="email" autocomplete="username" placeholder="Email" required />
+              <input id="loginEmail" type="email" autocomplete="username" placeholder="Email address" aria-required="true" required />
             </div>
 
             <div class="auth-field">
@@ -143,9 +144,9 @@
               <span class="auth-field__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
               </span>
-              <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password" required />
-              <button type="button" class="auth-field__toggle" id="pwToggle" aria-label="Show password">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password" aria-required="true" required />
+              <button type="button" class="auth-field__toggle" id="pwToggle" aria-label="Show password" aria-pressed="false">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
 
@@ -180,6 +181,7 @@
         const showing = pwInput.type === "text";
         pwInput.type = showing ? "password" : "text";
         pwToggle.setAttribute("aria-label", showing ? "Show password" : "Hide password");
+        pwToggle.setAttribute("aria-pressed", String(!showing));
         pwToggle.classList.toggle("is-on", !showing);
       });
 
@@ -202,17 +204,33 @@
         });
       });
 
-// Role selector — segmented control
+// Role selector — segmented control with keyboard support (arrow nav, Home/End)
       let selectedRole = "citizen";
-      document.querySelectorAll(".auth-role-seg").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".auth-role-seg").forEach((b) => {
-            b.classList.remove("is-active");
-            b.setAttribute("aria-checked", "false");
-          });
-          btn.classList.add("is-active");
-          btn.setAttribute("aria-checked", "true");
-          selectedRole = btn.getAttribute("data-role");
+      const roleSegs = Array.from(document.querySelectorAll(".auth-role-seg"));
+      function selectRole(btn, focus) {
+        roleSegs.forEach((b) => {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-checked", "false");
+          b.setAttribute("tabindex", "-1");
+        });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-checked", "true");
+        btn.setAttribute("tabindex", "0");
+        selectedRole = btn.getAttribute("data-role");
+        if (focus) btn.focus();
+      }
+      roleSegs.forEach((btn, i) => {
+        btn.addEventListener("click", () => selectRole(btn, false));
+        btn.addEventListener("keydown", (e) => {
+          let next = -1;
+          if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % roleSegs.length;
+          else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + roleSegs.length) % roleSegs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = roleSegs.length - 1;
+          if (next >= 0) {
+            e.preventDefault();
+            selectRole(roleSegs[next], true);
+          }
         });
       });
 

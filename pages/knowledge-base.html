@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../styles/main.css" />
   <link rel="stylesheet" href="../styles/layout.css" />
   <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/a11y.css" />
 </head>
 <body>
   <div data-app-shell>
@@ -20,8 +21,8 @@
       </div>
 
       <div class="filter-bar">
-        <input id="kbSearch" type="search" placeholder="Search articles…" style="flex:1; min-width:240px;" />
-        <select id="kbCategory">
+        <input id="kbSearch" type="search" placeholder="Search articles…" aria-label="Search knowledge articles" style="flex:1; min-width:240px;" />
+        <select id="kbCategory" aria-label="Filter by category">
           <option value="">All categories</option>
           <option>Loyalty</option><option>Process</option><option>Policy</option><option>Programs</option>
         </select>

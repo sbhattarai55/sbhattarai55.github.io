@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../styles/main.css" />
   <link rel="stylesheet" href="../styles/layout.css" />
   <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/a11y.css" />
 </head>
 <body>
   <div data-app-shell>
@@ -23,18 +24,18 @@
       </div>
 
       <div class="filter-bar">
-        <input type="search" placeholder="Search description…" id="filterQuery" style="flex:1; min-width:200px;" />
-        <select id="filterType">
+        <input type="search" placeholder="Search description…" id="filterQuery" aria-label="Search engagement description" style="flex:1; min-width:200px;" />
+        <select id="filterType" aria-label="Filter by type">
           <option value="">All types</option>
           <option>Volunteer</option><option>Feedback</option><option>Program</option><option>Service</option>
         </select>
-        <select id="filterChannel">
+        <select id="filterChannel" aria-label="Filter by channel">
           <option value="">All channels</option>
           <option>In-person</option><option>Phone</option><option>Web</option><option>Email</option>
         </select>
         <input type="date" aria-label="From" />
         <input type="date" aria-label="To" />
-        <select id="viewToggle">
+        <select id="viewToggle" aria-label="View as table or timeline">
           <option value="table">Table view</option>
           <option value="timeline">Timeline view</option>
         </select>

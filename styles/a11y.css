@@ -1,0 +1,170 @@
+/* =========================================================
+   Accessibility (WCAG 2.1 AA) — global rules
+   Loaded after main.css/components.css/layout.css/auth.css.
+   ========================================================= */
+
+/* ---- Skip link (keyboard-first navigation aid) ---- */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -40px;
+  z-index: 10000;
+  background: var(--color-primary, #6a4cf0);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 0;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
+  outline: 3px solid #ffd479;
+  outline-offset: 2px;
+}
+
+/* ---- Visible focus indicator for everything keyboard-reachable ----
+   We use :focus-visible so mouse clicks don't show the ring,
+   but keyboard / assistive tech still does. */
+:focus { outline: none; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
+[role="button"]:focus-visible,
+[role="menuitem"]:focus-visible,
+[role="option"]:focus-visible,
+[role="radio"]:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #ffbf47;        /* high-contrast amber, distinct from purple brand */
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Inputs already have a visible border — keep amber outline tight to them */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-offset: 0;
+}
+
+/* The injected main region focuses without an outline halo */
+main:focus,
+[role="main"]:focus { outline: none; }
+
+/* ---- Forced-colors / Windows High Contrast support ---- */
+@media (forced-colors: active) {
+  .btn,
+  .auth-btn,
+  .icon-btn,
+  .menu-toggle,
+  .side-nav__item,
+  .toast,
+  .modal {
+    border: 1px solid CanvasText;
+  }
+  .btn--primary,
+  .auth-btn--primary {
+    background: ButtonFace;
+    color: ButtonText;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid Highlight;
+  }
+}
+
+/* ---- Reduced-motion users: kill non-essential animations ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .toast { transform: none !important; }
+}
+
+/* ---- Touch target minimum (WCAG 2.5.5 AAA, but also AA Mobile Best Practice)
+   At least 24×24 CSS px for AA; we aim for 32×32 where space allows. ---- */
+.icon-btn,
+.menu-toggle,
+.toast__close,
+.user-menu,
+.modal__close,
+.auth-field__toggle {
+  min-width: 32px;
+  min-height: 32px;
+}
+
+/* ---- Toasts must be polite live region ---- */
+.toast-container {
+  /* Ensures screen readers announce toast text without stealing focus */
+}
+
+/* ---- Required-field marker styling, kept accessible ---- */
+.required-mark {
+  color: var(--color-danger, #dc2626);
+  margin-left: 2px;
+}
+
+/* ---- Form error messaging ---- */
+.field-error,
+.auth-error {
+  color: var(--color-danger, #dc2626);
+}
+
+/* ---- Form fieldset/legend baseline ---- */
+fieldset {
+  border: 1px solid var(--color-border, #e2e5ee);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 0 0 12px;
+}
+legend {
+  padding: 0 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-text, #1c1d2b);
+}
+
+/* ---- Ensure placeholder text alone is never the label
+   (placeholders can disappear; visible labels are the source of truth) ---- */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  opacity: 1;       /* Firefox lowers it */
+}
+
+/* ---- Make sure links inside body text are distinguishable
+   beyond color alone (WCAG 1.4.1) ---- */
+.app-main a:not(.btn):not(.side-nav__item):not(.search-results__item):not(.user-menu):not(.text-muted):not(.tab) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---- Tables: caption + scope already in markup, ensure
+   row hover + focus contrast is sufficient ---- */
+.table tbody tr:focus-within {
+  outline: 2px solid var(--color-primary, #6a4cf0);
+  outline-offset: -2px;
+}
+
+/* ---- Modal: when open, mark scrim a11y-friendly ---- */
+.modal-overlay.is-open {
+  /* JS sets aria-hidden on background siblings; this is just visual */
+}
+.modal {
+  /* Provide a tabindex='-1' container so JS can move focus into it */
+}
