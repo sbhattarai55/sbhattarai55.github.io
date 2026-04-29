@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cases — Civic Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div data-app-shell>
+    <main class="app-main">
+      <div class="page-header">
+        <div>
+          <nav class="breadcrumbs"><span><a href="agent-dashboard.html">Dashboard</a></span><span>Cases</span></nav>
+          <h1>Cases</h1>
+          <small class="text-muted">Service requests and resolution workflow</small>
+        </div>
+        <button class="btn btn--primary" data-modal-open="newCaseModal">+ New case</button>
+      </div>
+
+      <div class="layout-with-aside">
+        <!-- Case list + selected case -->
+        <div class="flex-col gap-4">
+          <section class="card">
+            <div class="card__header">
+              <h2 class="card__title">All cases</h2>
+              <div class="filter-bar" style="margin:0;padding:0;border:none;background:transparent;">
+                <select id="statusFilter">
+                  <option value="">All statuses</option>
+                  <option>Open</option><option>In review</option><option>Escalated</option><option>Resolved</option>
+                </select>
+              </div>
+            </div>
+            <div style="overflow:auto;">
+              <table class="data-table">
+                <thead><tr><th>ID</th><th>Title</th><th>Citizen</th><th>Priority</th><th>Status</th><th>Opened</th></tr></thead>
+                <tbody id="caseRows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Selected case detail -->
+          <section class="card" id="caseDetailCard">
+            <div class="card__header"><h2 class="card__title" id="caseTitle">Select a case</h2></div>
+            <div class="card__body" id="caseDetail">
+              <div class="empty-state">Choose a case from the list above</div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="flex-col gap-4">
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Citizen context</h2></div>
+            <div class="card__body" id="caseCitizen"><div class="empty-state">No case selected</div></div>
+          </section>
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Resolution timeline</h2></div>
+            <div class="card__body">
+              <div class="timeline">
+                <div class="timeline__item"><div class="timeline__time">Today 10:14</div><div class="timeline__title">Note added</div><div class="timeline__desc">Called citizen for verification.</div></div>
+                <div class="timeline__item"><div class="timeline__time">Yesterday</div><div class="timeline__title">Case assigned</div><div class="timeline__desc">Routed to S. Park.</div></div>
+                <div class="timeline__item"><div class="timeline__time">2 days ago</div><div class="timeline__title">Case opened</div><div class="timeline__desc">Submitted via web form.</div></div>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="newCaseModal"><div class="modal">
+    <div class="modal__header"><h3 class="modal__title">New case</h3><button class="modal__close" data-modal-close>×</button></div>
+    <div class="modal__body">
+      <form class="form-grid form-grid--2">
+        <div class="form-field"><label>Citizen</label><input placeholder="Search…" /></div>
+        <div class="form-field"><label>Priority</label><select><option>Low</option><option>Medium</option><option>High</option></select></div>
+        <div class="form-field" style="grid-column:1/-1;"><label>Title</label><input /></div>
+        <div class="form-field" style="grid-column:1/-1;"><label>Description</label><textarea></textarea></div>
+      </form>
+    </div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" data-modal-close>Create</button></div>
+  </div></div>
+
+  <script src="../scripts/mock-data.js"></script>
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/app.js"></script>
+  <script src="../scripts/search.js"></script>
+  <script src="../scripts/modals.js"></script>
+  <script src="../scripts/cases.js"></script>
+</body>
+</html>

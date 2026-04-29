@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings — Civic Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div data-app-shell>
+    <main class="app-main">
+      <div class="page-header">
+        <div>
+          <nav class="breadcrumbs"><span><a href="agent-dashboard.html">Dashboard</a></span><span>Settings</span></nav>
+          <h1>Settings</h1>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <section class="card">
+          <div class="card__header"><h2 class="card__title">Profile</h2></div>
+          <div class="card__body">
+            <form class="form-grid">
+              <div class="form-field"><label>Display name</label><input value="Sam Park" /></div>
+              <div class="form-field"><label>Email</label><input type="email" value="sam.park@city.gov" /></div>
+              <div class="form-field"><label>Role</label>
+                <select><option>Service Agent</option><option>Supervisor</option></select>
+              </div>
+              <button class="btn btn--primary" type="button">Save changes</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header"><h2 class="card__title">Notifications</h2></div>
+          <div class="card__body">
+            <label class="flex items-center gap-2"><input type="checkbox" checked /> Loyalty milestone alerts</label>
+            <label class="flex items-center gap-2 mt-2"><input type="checkbox" checked /> Escalation notifications</label>
+            <label class="flex items-center gap-2 mt-2"><input type="checkbox" /> Weekly insights digest</label>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/mock-data.js"></script>
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/app.js"></script>
+  <script src="../scripts/search.js"></script>
+</body>
+</html>

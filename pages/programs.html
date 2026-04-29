@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programs — Civic Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div data-app-shell>
+    <main class="app-main">
+      <div class="page-header">
+        <div>
+          <nav class="breadcrumbs"><span><a href="agent-dashboard.html">Dashboard</a></span><span>Programs</span></nav>
+          <h1>Programs & recommendations</h1>
+          <small class="text-muted">Civic programs available for enrollment</small>
+        </div>
+        <button class="btn btn--primary" data-modal-open="enrollModal">+ Enroll citizen</button>
+      </div>
+
+      <section class="card mb-4">
+        <div class="card__header"><h2 class="card__title">Recommended for selected citizen</h2><small class="card__subtitle">Maria Alvarez (C-10293)</small></div>
+        <div class="card__body grid grid-3" id="recoGrid"></div>
+      </section>
+
+      <section class="card">
+        <div class="card__header">
+          <h2 class="card__title">All programs</h2>
+          <div class="filter-bar" style="margin:0; padding:0; border:none; background:transparent;">
+            <select id="catFilter">
+              <option value="">All categories</option>
+              <option>Education</option><option>Environment</option>
+              <option>Community</option><option>Civic</option><option>Health</option>
+            </select>
+          </div>
+        </div>
+        <div class="card__body grid grid-3" id="programGrid"></div>
+      </section>
+
+      <!-- Confirmation state (hidden until enrollment) -->
+      <div class="alert alert--success hidden mt-4" id="confirmBanner">
+        ✅ Enrollment confirmed. A confirmation email has been sent to the citizen.
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="enrollModal"><div class="modal">
+    <div class="modal__header"><h3 class="modal__title">Enroll citizen</h3><button class="modal__close" data-modal-close>×</button></div>
+    <div class="modal__body">
+      <form class="form-grid form-grid--2" id="enrollForm">
+        <div class="form-field"><label>Citizen</label><input id="enrollCitizen" placeholder="Search…" /></div>
+        <div class="form-field"><label>Program</label><select id="enrollProgram"></select></div>
+        <div class="form-field"><label>Effective date</label><input type="date" id="enrollDate" /></div>
+        <div class="form-field"><label>Channel</label><select><option>Phone</option><option>Email</option><option>Walk-in</option></select></div>
+        <div class="form-field" style="grid-column:1/-1;"><label>Notes</label><textarea></textarea></div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost" data-modal-close>Cancel</button>
+      <button class="btn btn--primary" id="enrollSubmit">Confirm</button>
+    </div>
+  </div></div>
+
+  <script src="../scripts/mock-data.js"></script>
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/app.js"></script>
+  <script src="../scripts/search.js"></script>
+  <script src="../scripts/modals.js"></script>
+  <script src="../scripts/programs.js"></script>
+</body>
+</html>

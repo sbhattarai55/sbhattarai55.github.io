@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insights — Civic Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div data-app-shell>
+    <main class="app-main">
+      <div class="page-header">
+        <div>
+          <nav class="breadcrumbs"><span><a href="agent-dashboard.html">Dashboard</a></span><span>Insights</span></nav>
+          <h1>Service quality & engagement insights</h1>
+          <small class="text-muted">Supervisor view — last 30 days</small>
+        </div>
+        <div class="btn-group">
+          <select><option>Last 30 days</option><option>Last 90 days</option><option>YTD</option></select>
+          <button class="btn btn--ghost">Export report</button>
+        </div>
+      </div>
+
+      <section class="grid grid-4 mb-6">
+        <div class="kpi-card"><div class="kpi-card__label">Active citizens</div><div class="kpi-card__value" id="iActive">—</div><div class="kpi-card__delta up">▲ 6.1%</div></div>
+        <div class="kpi-card"><div class="kpi-card__label">Avg satisfaction</div><div class="kpi-card__value" id="iSat">—</div><div class="kpi-card__delta down">▼ 0.1</div></div>
+        <div class="kpi-card"><div class="kpi-card__label">Avg case resolution</div><div class="kpi-card__value" id="iRes">—</div><div class="kpi-card__delta up">▲ Faster by 1.4h</div></div>
+        <div class="kpi-card"><div class="kpi-card__label">Repeat participation</div><div class="kpi-card__value" id="iRep">—</div><div class="kpi-card__delta up">▲ 4 pts</div></div>
+      </section>
+
+      <div class="grid grid-2 mb-4">
+        <div class="card">
+          <div class="card__header"><h2 class="card__title">Satisfaction trend</h2></div>
+          <div class="card__body"><div class="chart-placeholder">Trend chart placeholder</div></div>
+        </div>
+        <div class="card">
+          <div class="card__header"><h2 class="card__title">Engagement by channel</h2></div>
+          <div class="card__body"><div class="chart-placeholder">Bar chart placeholder</div></div>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card__header"><h2 class="card__title">Low satisfaction alerts</h2></div>
+          <div style="overflow:auto;">
+            <table class="data-table">
+              <thead><tr><th>Citizen</th><th>Score</th><th>Channel</th><th></th></tr></thead>
+              <tbody id="lowSatRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Agent performance</h2>
+            <small class="card__subtitle">Training opportunities highlighted</small>
+          </div>
+          <div style="overflow:auto;">
+            <table class="data-table">
+              <thead><tr><th>Agent</th><th>Handled</th><th>Avg rating</th><th>Escalations</th><th>Action</th></tr></thead>
+              <tbody id="agentPerfRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/mock-data.js"></script>
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/app.js"></script>
+  <script src="../scripts/search.js"></script>
+  <script src="../scripts/modals.js"></script>
+  <script src="../scripts/insights.js"></script>
+</body>
+</html>

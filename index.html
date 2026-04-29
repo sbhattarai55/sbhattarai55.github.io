@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Civic Engagement Desk — Sign In</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/auth.css" />
+</head>
+<body class="auth-body">
+  <main class="auth-page">
+    <div class="auth-card">
+
+      <!-- Visual / brand panel -->
+      <aside class="auth-visual" aria-hidden="false">
+        <div class="auth-visual__inner">
+          <div class="auth-visual__top">
+            <a href="#" class="auth-brand">
+              <span class="auth-brand__mark">C</span>
+              <span class="auth-brand__name">Civic<span>Desk</span></span>
+            </a>
+            <a href="#" class="auth-pill">Learn more <span aria-hidden="true">→</span></a>
+          </div>
+
+          <div class="auth-visual__art" aria-hidden="true">
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Civic skyline at dusk">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3a2f6b"/>
+                  <stop offset="55%" stop-color="#5a3f8a"/>
+                  <stop offset="100%" stop-color="#1f1c3a"/>
+                </linearGradient>
+                <linearGradient id="city" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1a1838"/>
+                  <stop offset="100%" stop-color="#0d0c1f"/>
+                </linearGradient>
+                <radialGradient id="moon" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fff" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="400" height="500" fill="url(#sky)"/>
+              <circle cx="305" cy="120" r="48" fill="url(#moon)"/>
+              <circle cx="305" cy="120" r="22" fill="#f5e9ff" opacity="0.85"/>
+
+              <g fill="#fff" opacity="0.7">
+                <circle cx="40"  cy="60"  r="1.2"/>
+                <circle cx="90"  cy="35"  r="1"/>
+                <circle cx="160" cy="80"  r="1.3"/>
+                <circle cx="220" cy="40"  r="1"/>
+                <circle cx="370" cy="70"  r="1.4"/>
+                <circle cx="60"  cy="180" r="1"/>
+                <circle cx="135" cy="160" r="1.2"/>
+                <circle cx="245" cy="200" r="1"/>
+                <circle cx="350" cy="220" r="1.1"/>
+              </g>
+
+              <path d="M0 360 Q 80 290 160 330 T 320 320 T 400 340 V500 H0 Z" fill="#2a2658" opacity="0.85"/>
+
+              <g fill="url(#city)">
+                <rect x="0"   y="380" width="40"  height="120"/>
+                <rect x="40"  y="350" width="32"  height="150"/>
+                <rect x="72"  y="320" width="46"  height="180"/>
+                <rect x="118" y="360" width="28"  height="140"/>
+                <rect x="146" y="300" width="60"  height="200"/>
+                <polygon points="146,300 176,270 206,300"/>
+                <rect x="206" y="340" width="34"  height="160"/>
+                <rect x="240" y="310" width="50"  height="190"/>
+                <rect x="290" y="345" width="38"  height="155"/>
+                <rect x="328" y="330" width="44"  height="170"/>
+                <rect x="372" y="360" width="28"  height="140"/>
+              </g>
+
+              <g fill="#ffd479" opacity="0.85">
+                <rect x="80"  y="340" width="4" height="6"/>
+                <rect x="92"  y="355" width="4" height="6"/>
+                <rect x="104" y="340" width="4" height="6"/>
+                <rect x="156" y="320" width="4" height="6"/>
+                <rect x="168" y="335" width="4" height="6"/>
+                <rect x="180" y="320" width="4" height="6"/>
+                <rect x="192" y="350" width="4" height="6"/>
+                <rect x="252" y="330" width="4" height="6"/>
+                <rect x="264" y="345" width="4" height="6"/>
+                <rect x="276" y="330" width="4" height="6"/>
+                <rect x="338" y="350" width="4" height="6"/>
+                <rect x="350" y="365" width="4" height="6"/>
+              </g>
+
+              <rect x="0" y="450" width="400" height="50" fill="#0d0c1f"/>
+            </svg>
+          </div>
+
+          <div class="auth-visual__bottom">
+            <h2 class="auth-visual__title">Engaging Citizens,<br/>Empowering Cities.</h2>
+            <div class="auth-dots" role="tablist" aria-label="Highlights">
+              <button class="auth-dot is-active" aria-label="Slide 1" aria-selected="true"></button>
+              <button class="auth-dot" aria-label="Slide 2"></button>
+              <button class="auth-dot" aria-label="Slide 3"></button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Sign-in panel -->
+      <section class="auth-form-panel">
+        <div class="auth-form-inner">
+          <header class="auth-form-header">
+            <h1>Welcome back</h1>
+            <p>
+              Don't have an account?
+              <a href="pages/register.html" class="auth-link">Create one</a>
+            </p>
+          </header>
+
+          <form id="loginForm" class="auth-form" novalidate>
+            <div class="auth-role-select" role="radiogroup" aria-label="Sign in as">
+              <span class="auth-role-select__label">I'm signing in as</span>
+              <div class="auth-role-segments">
+                <button type="button" class="auth-role-seg is-active" data-role="citizen" role="radio" aria-checked="true">
+                  <span aria-hidden="true">🧍</span> Citizen
+                </button>
+                <button type="button" class="auth-role-seg" data-role="agent" role="radio" aria-checked="false">
+                  <span aria-hidden="true">🎧</span> Agent
+                </button>
+                <button type="button" class="auth-role-seg" data-role="supervisor" role="radio" aria-checked="false">
+                  <span aria-hidden="true">📊</span> Supervisor
+                </button>
+              </div>
+            </div>
+
+            <div class="auth-field">
+              <label for="loginEmail" class="sr-only">Email</label>
+              <span class="auth-field__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              </span>
+              <input id="loginEmail" type="email" autocomplete="username" placeholder="Email" required />
+            </div>
+
+            <div class="auth-field">
+              <label for="loginPassword" class="sr-only">Password</label>
+              <span class="auth-field__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+              </span>
+              <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password" required />
+              <button type="button" class="auth-field__toggle" id="pwToggle" aria-label="Show password">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+
+            <div class="auth-row">
+              <label class="auth-checkbox">
+                <input type="checkbox" id="rememberMe" />
+                <span>Remember me</span>
+              </label>
+              <a href="pages/forgot-password.html" class="auth-link auth-link--muted">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="auth-btn auth-btn--primary">Sign in</button>
+          </form>
+
+          <p class="auth-fineprint">
+            By signing in, you agree to the
+            <a href="#" class="auth-link auth-link--muted">Terms</a> &amp;
+            <a href="#" class="auth-link auth-link--muted">Privacy Policy</a>.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="scripts/services.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Password visibility toggle
+      const pwInput  = document.getElementById("loginPassword");
+      const pwToggle = document.getElementById("pwToggle");
+      pwToggle.addEventListener("click", () => {
+        const showing = pwInput.type === "text";
+        pwInput.type = showing ? "password" : "text";
+        pwToggle.setAttribute("aria-label", showing ? "Show password" : "Hide password");
+        pwToggle.classList.toggle("is-on", !showing);
+      });
+
+      // Visual carousel dots — swap tagline copy
+      const taglines = [
+        "Engaging Citizens,<br/>Empowering Cities.",
+        "AI Recommendations,<br/>Real-time Service.",
+        "Recognize Loyalty,<br/>Build Community.",
+      ];
+      const titleEl = document.querySelector(".auth-visual__title");
+      document.querySelectorAll(".auth-dot").forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          document.querySelectorAll(".auth-dot").forEach(d => {
+            d.classList.remove("is-active");
+            d.setAttribute("aria-selected", "false");
+          });
+          dot.classList.add("is-active");
+          dot.setAttribute("aria-selected", "true");
+          titleEl.innerHTML = taglines[i];
+        });
+      });
+
+// Role selector — segmented control
+      let selectedRole = "citizen";
+      document.querySelectorAll(".auth-role-seg").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".auth-role-seg").forEach((b) => {
+            b.classList.remove("is-active");
+            b.setAttribute("aria-checked", "false");
+          });
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-checked", "true");
+          selectedRole = btn.getAttribute("data-role");
+        });
+      });
+
+      // Sign-in submit — honor the selected role
+      document.getElementById("loginForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        await window.Services.login(selectedRole);
+        window.location.href = destinationFor(selectedRole);
+      });
+
+      function destinationFor(role) {
+        return role === "citizen"    ? "pages/citizen-dashboard.html"
+             : role === "supervisor" ? "pages/insights.html"
+                                     : "pages/agent-dashboard.html";
+      }
+    });
+  </script>
+</body>
+</html>

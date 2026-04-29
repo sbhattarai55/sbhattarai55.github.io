@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Dashboard — Civic Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div data-app-shell>
+    <main class="app-main">
+      <div class="page-header">
+        <div>
+          <nav class="breadcrumbs"><span><a href="citizen-dashboard.html">Home</a></span><span>My Dashboard</span></nav>
+          <h1>Welcome back, <span id="welcomeName">Maria</span></h1>
+          <small class="text-muted">Thank you for being an active member of our community.</small>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn--ghost" data-modal-open="feedbackModal">Submit feedback</button>
+          <button class="btn btn--primary" data-modal-open="joinProgramModal">Join a program</button>
+        </div>
+      </div>
+
+      <!-- Hero stats -->
+      <section class="grid grid-3 mb-6">
+        <div class="card">
+          <div class="card__body">
+            <small class="text-muted">Loyalty points</small>
+            <div style="font-size:32px; font-weight:700;" id="myPoints">—</div>
+            <small class="text-muted" id="myPointsDelta">+150 this month</small>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__body">
+            <small class="text-muted">Current tier</small>
+            <div class="mt-2" id="myTier"></div>
+            <div id="myTierProgress" class="mt-3"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__body">
+            <small class="text-muted">Open requests</small>
+            <div style="font-size:32px; font-weight:700;" id="myOpen">0</div>
+            <a href="cases.html" class="text-muted">Track requests →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card mb-4" id="badgesCard">
+        <div class="card__header"><h2 class="card__title">Your badges</h2></div>
+        <div class="card__body" id="myBadges" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+      </section>
+
+      <div class="layout-with-aside">
+        <div class="flex-col gap-4">
+          <!-- Rate your recent agent interaction -->
+          <section class="card" id="rateAgentCard" hidden>
+            <div class="card__header"><h2 class="card__title">How was your recent service experience?</h2></div>
+            <div class="card__body" id="rateAgentBody"></div>
+          </section>
+
+          <section class="card">
+            <div class="card__header">
+              <h2 class="card__title">Recent activity</h2>
+              <a href="engagement-history.html" class="text-muted">See all →</a>
+            </div>
+            <div class="card__body">
+              <div class="timeline" id="myTimeline"></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Recommended for you</h2></div>
+            <div class="card__body grid grid-2" id="myRecs"></div>
+          </section>
+        </div>
+
+        <aside class="flex-col gap-4">
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Recognition received</h2></div>
+            <div class="card__body" id="myRecognitions"></div>
+          </section>
+
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Your milestones</h2></div>
+            <div class="card__body">
+              <div class="mb-3">🥉 Bronze — earned Mar 2022</div>
+              <div class="mb-3">🥈 Silver — earned Aug 2023</div>
+              <div class="mb-3">🥇 <strong>Gold — current</strong></div>
+              <div class="text-muted">Platinum at 4,000 pts</div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Recent feedback I gave</h2></div>
+            <div class="card__body" id="myFeedback"></div>
+          </section>
+
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Quick actions</h2></div>
+            <div class="card__body flex-col gap-2">
+              <button class="btn btn--ghost btn--block" data-modal-open="joinProgramModal">Join a program</button>
+              <button class="btn btn--ghost btn--block" data-modal-open="feedbackModal">Submit feedback</button>
+              <a class="btn btn--ghost btn--block" href="cases.html">Track service requests</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- Loyalty milestone toast/modal (opens once per session via JS) -->
+  <div class="modal-overlay" id="milestoneModal">
+    <div class="modal">
+      <div class="modal__header"><h3 class="modal__title">🎉 You reached Gold Citizen!</h3><button class="modal__close" data-modal-close>×</button></div>
+      <div class="modal__body">Congratulations on reaching the Gold tier — thank you for your civic engagement.</div>
+      <div class="modal__footer"><button class="btn btn--primary" data-modal-close>Awesome</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="joinProgramModal"><div class="modal">
+    <div class="modal__header"><h3 class="modal__title">Join a program</h3><button class="modal__close" data-modal-close>×</button></div>
+    <div class="modal__body">
+      <div class="form-field"><label>Program</label><select id="joinProgramSelect"></select></div>
+      <p class="text-muted mt-3" id="joinProgramDesc"></p>
+    </div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" id="joinProgramSubmit">Join</button></div>
+  </div></div>
+
+  <div class="modal-overlay" id="feedbackModal"><div class="modal">
+    <div class="modal__header"><h3 class="modal__title">Submit feedback</h3><button class="modal__close" data-modal-close>×</button></div>
+    <div class="modal__body">
+      <div class="form-field"><label>Rating</label>
+        <div class="rating-input" id="feedbackRating" data-value="5">
+          <button type="button" data-score="1">★</button>
+          <button type="button" data-score="2">★</button>
+          <button type="button" data-score="3">★</button>
+          <button type="button" data-score="4">★</button>
+          <button type="button" data-score="5">★</button>
+        </div>
+      </div>
+      <div class="form-field mt-3"><label>Comment</label><textarea id="feedbackComment" placeholder="Tell us about your experience…"></textarea></div>
+    </div>
+    <div class="modal__footer"><button class="btn btn--ghost" data-modal-close>Cancel</button><button class="btn btn--primary" id="feedbackSubmit">Submit</button></div>
+  </div></div>
+
+  <script src="../scripts/mock-data.js"></script>
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/app.js"></script>
+  <script src="../scripts/search.js"></script>
+  <script src="../scripts/modals.js"></script>
+  <script src="../scripts/citizen-dashboard.js"></script>
+</body>
+</html>

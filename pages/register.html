@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create an account · Smart Civic Engagement Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/auth.css" />
+</head>
+<body class="auth-body">
+  <main class="auth-page">
+    <div class="auth-card">
+
+      <!-- Visual / brand panel -->
+      <aside class="auth-visual">
+        <div class="auth-visual__inner">
+          <div class="auth-visual__top">
+            <a href="../index.html" class="auth-brand">
+              <span class="auth-brand__mark">C</span>
+              <span class="auth-brand__name">Civic<span>Desk</span></span>
+            </a>
+            <a href="../index.html" class="auth-pill">Back to sign in <span aria-hidden="true">→</span></a>
+          </div>
+
+          <div class="auth-visual__art" aria-hidden="true">
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="reg-sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3a2f6b"/>
+                  <stop offset="55%" stop-color="#5a3f8a"/>
+                  <stop offset="100%" stop-color="#1f1c3a"/>
+                </linearGradient>
+                <linearGradient id="reg-city" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1a1838"/>
+                  <stop offset="100%" stop-color="#0d0c1f"/>
+                </linearGradient>
+                <radialGradient id="reg-moon">
+                  <stop offset="0%" stop-color="#fff" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="400" height="500" fill="url(#reg-sky)"/>
+              <circle cx="305" cy="120" r="48" fill="url(#reg-moon)"/>
+              <circle cx="305" cy="120" r="22" fill="#f5e9ff" opacity="0.85"/>
+              <g fill="#fff" opacity="0.7">
+                <circle cx="40"  cy="60"  r="1.2"/>
+                <circle cx="160" cy="80"  r="1.3"/>
+                <circle cx="370" cy="70"  r="1.4"/>
+                <circle cx="135" cy="160" r="1.2"/>
+                <circle cx="245" cy="200" r="1"/>
+              </g>
+              <path d="M0 360 Q 80 290 160 330 T 320 320 T 400 340 V500 H0 Z" fill="#2a2658" opacity="0.85"/>
+              <g fill="url(#reg-city)">
+                <rect x="0"   y="380" width="40"  height="120"/>
+                <rect x="40"  y="350" width="32"  height="150"/>
+                <rect x="72"  y="320" width="46"  height="180"/>
+                <rect x="118" y="360" width="28"  height="140"/>
+                <rect x="146" y="300" width="60"  height="200"/>
+                <polygon points="146,300 176,270 206,300"/>
+                <rect x="206" y="340" width="34"  height="160"/>
+                <rect x="240" y="310" width="50"  height="190"/>
+                <rect x="290" y="345" width="38"  height="155"/>
+                <rect x="328" y="330" width="44"  height="170"/>
+                <rect x="372" y="360" width="28"  height="140"/>
+              </g>
+              <g fill="#ffd479" opacity="0.85">
+                <rect x="80"  y="340" width="4" height="6"/>
+                <rect x="156" y="320" width="4" height="6"/>
+                <rect x="180" y="320" width="4" height="6"/>
+                <rect x="252" y="330" width="4" height="6"/>
+                <rect x="338" y="350" width="4" height="6"/>
+              </g>
+              <rect x="0" y="450" width="400" height="50" fill="#0d0c1f"/>
+            </svg>
+          </div>
+
+          <div class="auth-visual__bottom">
+            <h2 class="auth-visual__title">Join Civic Desk.<br/>Make your city better.</h2>
+            <div class="auth-dots">
+              <button class="auth-dot is-active"></button>
+              <button class="auth-dot"></button>
+              <button class="auth-dot"></button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Wizard panel -->
+      <section class="auth-form-panel auth-form-panel--wide">
+        <div class="auth-form-inner">
+
+          <ol class="reg-stepper" id="stepper" aria-label="Registration progress">
+            <li class="reg-stepper__item is-active" data-step="1"><span class="reg-stepper__num">1</span><span>Role</span></li>
+            <li class="reg-stepper__item" data-step="2"><span class="reg-stepper__num">2</span><span>Account</span></li>
+            <li class="reg-stepper__item" data-step="3"><span class="reg-stepper__num">3</span><span>Profile</span></li>
+            <li class="reg-stepper__item" data-step="4"><span class="reg-stepper__num">4</span><span>Confirm</span></li>
+          </ol>
+
+          <!-- Step 1: Role -->
+          <section class="reg-step is-active" data-step-panel="1">
+            <header class="auth-form-header">
+              <h1>Create an account</h1>
+              <p>Already have an account? <a href="../index.html" class="auth-link">Sign in</a></p>
+            </header>
+
+            <div class="reg-roles" role="radiogroup" aria-label="Account type">
+              <button type="button" class="reg-role" data-role="citizen" role="radio" aria-checked="false">
+                <span class="reg-role__icon">🧍</span>
+                <span>
+                  <strong>Citizen</strong>
+                  <small>Track engagement, earn rewards, get help from your city.</small>
+                </span>
+              </button>
+              <button type="button" class="reg-role" data-role="agent" role="radio" aria-checked="false">
+                <span class="reg-role__icon">🎧</span>
+                <span>
+                  <strong>Service Agent</strong>
+                  <small>Handle calls, walk-ins and cases. Requires employee ID.</small>
+                </span>
+              </button>
+              <button type="button" class="reg-role" data-role="supervisor" role="radio" aria-checked="false">
+                <span class="reg-role__icon">📊</span>
+                <span>
+                  <strong>Supervisor</strong>
+                  <small>Oversee a team. Requires director approval.</small>
+                </span>
+              </button>
+            </div>
+
+            <div class="reg-actions">
+              <a class="auth-btn auth-btn--ghost" href="../index.html">Cancel</a>
+              <button class="auth-btn auth-btn--primary" id="step1Next" disabled>Continue</button>
+            </div>
+          </section>
+
+          <!-- Step 2: Account -->
+          <section class="reg-step" data-step-panel="2">
+            <header class="auth-form-header">
+              <h1>Set up your account</h1>
+              <p id="step2Lede">Use a valid email — we'll send you a verification link.</p>
+            </header>
+
+            <div class="reg-grid">
+              <div>
+                <label class="reg-label" for="regFullName">Full name</label>
+                <input class="reg-input" id="regFullName" type="text" autocomplete="name" placeholder="e.g. Maria Alvarez" />
+              </div>
+              <div>
+                <label class="reg-label" for="regEmail"><span id="regEmailLabel">Email</span></label>
+                <input class="reg-input" id="regEmail" type="email" autocomplete="email" placeholder="name@example.com" />
+                <small class="reg-hint" id="regEmailHint"></small>
+              </div>
+              <div class="reg-grid reg-grid--2">
+                <div>
+                  <label class="reg-label" for="regPassword">Password</label>
+                  <input class="reg-input" id="regPassword" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 chars" />
+                  <div class="reg-pw-meter"><span id="pwMeterFill"></span></div>
+                </div>
+                <div>
+                  <label class="reg-label" for="regPasswordConfirm">Confirm</label>
+                  <input class="reg-input" id="regPasswordConfirm" type="password" autocomplete="new-password" placeholder="Re-enter" />
+                </div>
+              </div>
+              <div>
+                <label class="reg-label" for="regPhone">Mobile <small style="opacity:0.6;">(for 2FA)</small></label>
+                <input class="reg-input" id="regPhone" type="tel" autocomplete="tel" placeholder="(555) 555-0123" />
+              </div>
+            </div>
+
+            <div class="reg-actions">
+              <button class="auth-btn auth-btn--ghost" data-reg-back>Back</button>
+              <button class="auth-btn auth-btn--primary" id="step2Next">Continue</button>
+            </div>
+          </section>
+
+          <!-- Step 3: Role-specific profile -->
+          <section class="reg-step" data-step-panel="3">
+            <header class="auth-form-header">
+              <h1 id="step3Title">Tell us a bit more</h1>
+              <p id="step3Lede">These details personalize your experience.</p>
+            </header>
+
+            <!-- Citizen -->
+            <div id="citizenProfileForm" class="reg-grid" hidden>
+              <div>
+                <label class="reg-label" for="citAddress">Street address</label>
+                <input class="reg-input" id="citAddress" type="text" placeholder="123 Civic Way" />
+              </div>
+              <div class="reg-grid reg-grid--2">
+                <div>
+                  <label class="reg-label" for="citCity">City</label>
+                  <input class="reg-input" id="citCity" type="text" />
+                </div>
+                <div>
+                  <label class="reg-label" for="citZip">ZIP</label>
+                  <input class="reg-input" id="citZip" type="text" inputmode="numeric" />
+                </div>
+              </div>
+              <div>
+                <label class="reg-label">Preferred contact channel</label>
+                <div class="reg-check-grid" style="grid-template-columns:repeat(3,1fr);">
+                  <label class="reg-check"><input type="radio" name="citChannel" value="Email" checked /> Email</label>
+                  <label class="reg-check"><input type="radio" name="citChannel" value="SMS" /> SMS</label>
+                  <label class="reg-check"><input type="radio" name="citChannel" value="Phone" /> Phone</label>
+                </div>
+              </div>
+              <div>
+                <label class="reg-label">Areas of interest</label>
+                <div class="reg-check-grid">
+                  <label class="reg-check"><input type="checkbox" name="citInterest" value="Volunteering" /> Volunteering</label>
+                  <label class="reg-check"><input type="checkbox" name="citInterest" value="Public safety" /> Public safety</label>
+                  <label class="reg-check"><input type="checkbox" name="citInterest" value="Parks & rec" /> Parks &amp; rec</label>
+                  <label class="reg-check"><input type="checkbox" name="citInterest" value="Sustainability" /> Sustainability</label>
+                  <label class="reg-check"><input type="checkbox" name="citInterest" value="Local events" /> Local events</label>
+                  <label class="reg-check"><input type="checkbox" name="citInterest" value="Education" /> Education</label>
+                </div>
+              </div>
+              <label class="reg-check"><input type="checkbox" id="citAccessibility" /> I require accessibility accommodations</label>
+            </div>
+
+            <!-- Agent -->
+            <div id="agentProfileForm" class="reg-grid" hidden>
+              <div>
+                <label class="reg-label" for="agEmployeeId">Employee ID</label>
+                <input class="reg-input" id="agEmployeeId" type="text" placeholder="e.g. EMP-04821" />
+                <small class="reg-hint">Verified against the HR directory.</small>
+              </div>
+              <div>
+                <label class="reg-label" for="agDepartment">Department</label>
+                <select class="reg-input" id="agDepartment">
+                  <option value="">Select…</option>
+                  <option>311 Contact Center</option>
+                  <option>Permits &amp; Licensing</option>
+                  <option>Parks &amp; Recreation</option>
+                  <option>Public Works</option>
+                  <option>Transportation</option>
+                  <option>Housing Services</option>
+                </select>
+              </div>
+              <div>
+                <label class="reg-label" for="agSupervisor">Supervisor email</label>
+                <input class="reg-input" id="agSupervisor" type="email" placeholder="supervisor@city.gov" />
+              </div>
+              <div>
+                <label class="reg-label">Channels you handle</label>
+                <div class="reg-check-grid">
+                  <label class="reg-check"><input type="checkbox" name="agChannel" value="Phone" checked /> Phone</label>
+                  <label class="reg-check"><input type="checkbox" name="agChannel" value="Email" /> Email</label>
+                  <label class="reg-check"><input type="checkbox" name="agChannel" value="Walk-in" /> Walk-in</label>
+                  <label class="reg-check"><input type="checkbox" name="agChannel" value="Chat" /> Chat</label>
+                </div>
+              </div>
+              <div>
+                <label class="reg-label" for="agLanguages">Languages spoken</label>
+                <input class="reg-input" id="agLanguages" type="text" placeholder="e.g. English, Spanish" />
+              </div>
+            </div>
+
+            <!-- Supervisor -->
+            <div id="supervisorProfileForm" class="reg-grid" hidden>
+              <div class="reg-grid reg-grid--2">
+                <div>
+                  <label class="reg-label" for="svEmployeeId">Employee ID</label>
+                  <input class="reg-input" id="svEmployeeId" type="text" placeholder="e.g. EMP-00714" />
+                </div>
+                <div>
+                  <label class="reg-label" for="svTeamSize">Team size</label>
+                  <input class="reg-input" id="svTeamSize" type="number" min="1" max="200" placeholder="12" />
+                </div>
+              </div>
+              <div>
+                <label class="reg-label" for="svDepartment">Department</label>
+                <select class="reg-input" id="svDepartment">
+                  <option value="">Select…</option>
+                  <option>311 Contact Center</option>
+                  <option>Permits &amp; Licensing</option>
+                  <option>Parks &amp; Recreation</option>
+                  <option>Public Works</option>
+                  <option>Transportation</option>
+                  <option>Housing Services</option>
+                </select>
+              </div>
+              <div>
+                <label class="reg-label" for="svRegion">Region / district</label>
+                <input class="reg-input" id="svRegion" type="text" placeholder="e.g. North District" />
+              </div>
+              <div>
+                <label class="reg-label" for="svDirector">Director's email</label>
+                <input class="reg-input" id="svDirector" type="email" placeholder="director@city.gov" />
+              </div>
+              <div class="reg-callout">
+                Supervisor accounts require approval from your director before activation. You'll receive an email when approved.
+              </div>
+            </div>
+
+            <div class="reg-actions">
+              <button class="auth-btn auth-btn--ghost" data-reg-back>Back</button>
+              <button class="auth-btn auth-btn--primary" id="step3Next">Continue</button>
+            </div>
+          </section>
+
+          <!-- Step 4: Review & confirm -->
+          <section class="reg-step" data-step-panel="4">
+            <header class="auth-form-header">
+              <h1>Review and confirm</h1>
+              <p>Verify your information before creating your account.</p>
+            </header>
+
+            <div class="reg-review" id="reviewSummary"></div>
+
+            <label class="reg-check" style="margin-top:16px;">
+              <input type="checkbox" id="agreeTerms" />
+              I agree to the <a href="#" class="auth-link">Terms</a> &amp; <a href="#" class="auth-link">Privacy Policy</a>
+            </label>
+            <label class="reg-check" style="margin-top:8px;">
+              <input type="checkbox" id="agreeUpdates" />
+              Email me occasional updates about civic programs
+            </label>
+
+            <div class="reg-actions">
+              <button class="auth-btn auth-btn--ghost" data-reg-back>Back</button>
+              <button class="auth-btn auth-btn--primary" id="submitRegistration" disabled>Create account</button>
+            </div>
+          </section>
+
+          <!-- Success -->
+          <section class="reg-step" data-step-panel="success">
+            <div class="reg-success">
+              <div class="reg-success__icon">✓</div>
+              <h1 id="successTitle" style="color:#fff;">Welcome to Civic Desk!</h1>
+              <p id="successBody" style="color:var(--auth-text-mut);">Your account has been created.</p>
+              <a class="auth-btn auth-btn--primary" id="successCta" href="#" style="display:inline-flex;width:auto;padding:12px 28px;margin-top:16px;">Continue</a>
+            </div>
+          </section>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/register.js"></script>
+</body>
+</html>

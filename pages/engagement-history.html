@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engagement History — Civic Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div data-app-shell>
+    <main class="app-main">
+      <div class="page-header">
+        <div>
+          <nav class="breadcrumbs"><span><a href="agent-dashboard.html">Dashboard</a></span><span>Engagement</span></nav>
+          <h1>Engagement history</h1>
+          <small class="text-muted">All citizen interactions and engagement activity</small>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn--ghost">⬇ Export</button>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <input type="search" placeholder="Search description…" id="filterQuery" style="flex:1; min-width:200px;" />
+        <select id="filterType">
+          <option value="">All types</option>
+          <option>Volunteer</option><option>Feedback</option><option>Program</option><option>Service</option>
+        </select>
+        <select id="filterChannel">
+          <option value="">All channels</option>
+          <option>In-person</option><option>Phone</option><option>Web</option><option>Email</option>
+        </select>
+        <input type="date" aria-label="From" />
+        <input type="date" aria-label="To" />
+        <select id="viewToggle">
+          <option value="table">Table view</option>
+          <option value="timeline">Timeline view</option>
+        </select>
+      </div>
+
+      <section class="grid grid-3 mb-4">
+        <div class="kpi-card"><div class="kpi-card__label">Total events</div><div class="kpi-card__value" id="sumEvents">—</div></div>
+        <div class="kpi-card"><div class="kpi-card__label">Points awarded</div><div class="kpi-card__value" id="sumPoints">—</div></div>
+        <div class="kpi-card"><div class="kpi-card__label">Top activity</div><div class="kpi-card__value" id="sumTop">—</div></div>
+      </section>
+
+      <div class="card mb-4">
+        <div class="card__header"><h2 class="card__title">Engagement trends</h2></div>
+        <div class="card__body"><div class="chart-placeholder">Line chart placeholder — events over time</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">Events</h2></div>
+        <div id="eventsView" style="overflow:auto;"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/mock-data.js"></script>
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/app.js"></script>
+  <script src="../scripts/search.js"></script>
+  <script src="../scripts/modals.js"></script>
+  <script src="../scripts/engagement.js"></script>
+</body>
+</html>

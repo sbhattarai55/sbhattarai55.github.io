@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Knowledge Base — Civic Desk</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div data-app-shell>
+    <main class="app-main">
+      <div class="page-header">
+        <div>
+          <nav class="breadcrumbs"><span><a href="agent-dashboard.html">Dashboard</a></span><span>Knowledge Base</span></nav>
+          <h1>Knowledge base</h1>
+          <small class="text-muted">Search articles, policies, and process guides</small>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <input id="kbSearch" type="search" placeholder="Search articles…" style="flex:1; min-width:240px;" />
+        <select id="kbCategory">
+          <option value="">All categories</option>
+          <option>Loyalty</option><option>Process</option><option>Policy</option><option>Programs</option>
+        </select>
+      </div>
+
+      <div class="layout-with-aside">
+        <section class="card">
+          <div class="card__header"><h2 class="card__title">Articles</h2><small class="card__subtitle" id="kbCount"></small></div>
+          <div id="kbList"></div>
+        </section>
+
+        <aside class="flex-col gap-4">
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Suggested for current citizen</h2></div>
+            <div class="card__body" id="kbSuggested"></div>
+          </section>
+          <section class="card">
+            <div class="card__header"><h2 class="card__title">Article preview</h2></div>
+            <div class="card__body" id="kbPreview"><div class="empty-state">Select an article to preview</div></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/mock-data.js"></script>
+  <script src="../scripts/services.js"></script>
+  <script src="../scripts/toast.js"></script>
+  <script src="../scripts/app.js"></script>
+  <script src="../scripts/search.js"></script>
+  <script src="../scripts/modals.js"></script>
+  <script src="../scripts/knowledge.js"></script>
+</body>
+</html>
